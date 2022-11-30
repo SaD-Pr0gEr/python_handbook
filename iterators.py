@@ -1,10 +1,23 @@
+"""
+An iterable is an object that has an __iter__ method which returns an iterator, or which defines a __getitem__
+method that can take sequential indexes starting from zero (and raises an IndexError when the indexes are no
+longer valid). So an iterable is an object that you can get an iterator from.
+An iterator is an object with a next (Python 2) or __next__ (Python 3) method.
+Iterator:
+    Class is used to implement an iterator
+    Iterators are used mostly to iterate or convert other objects to an iterator using iter() function.
+    Iterator uses iter() and next() functions(or __iter__/__next__ method)
+    Every iterator IS NOT a generator
+"""
+
+
 # import time
 
-import requests
-from bs4 import BeautifulSoup
+# import requests
+# from bs4 import BeautifulSoup
 
 
-class MyDataStructure:
+class MyUselessIterableDataStructure:
 
     def __init__(self, value1, value2):
         self.value1 = value1
@@ -23,7 +36,7 @@ class MyDataStructure:
         return value
 
 
-# for i in MyDataStructure(1, 2):
+# for i in MyUselessIterableDataStructure(1, 2):
 #     print(i)
 
 
@@ -58,12 +71,6 @@ class MyArray:
 
 # print(MyArray(1, 2).__next__())  # U can define and __next__()/next() without defining
 # __iter__ on class, cause __iter__ is just for "for" loop
-
-# An iterable is an object that has an __iter__ method which returns an iterator, or which defines a __getitem__
-# method that can take sequential indexes starting from zero (and raises an IndexError when the indexes are no
-# longer valid). So an iterable is an object that you can get an iterator from.
-
-# An iterator is an object with a next (Python 2) or __next__ (Python 3) method.
 
 
 class MyRange:
@@ -130,3 +137,14 @@ class MyRange:
 #
 # for data in NoEffectiveGithubParserIterator():
 #     if data: print(data)
+
+# def for_loop(iterable, loop_body_func):
+#     iterator = iter(iterable)
+#     next_element_exist = True
+#     while next_element_exist:
+#         try:
+#             element_from_iterator = next(iterator)
+#         except StopIteration:
+#             next_element_exist = False
+#         else:
+#             loop_body_func(element_from_iterator)

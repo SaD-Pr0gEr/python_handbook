@@ -6,6 +6,9 @@ Generator:
         affecting the iteration of the loop
     Generator uses yield keyword
     Every generator is an iterator
+    Once calculated and used elements are not saved anywhere.
+    Generator returns iterator, but the essence of the generator is that it can freeze work using yield and
+    continues its work at the next call, saving the values of all local attributes
 """
 
 from typing import Generator, Union, Iterator

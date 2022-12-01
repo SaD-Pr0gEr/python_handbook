@@ -8,6 +8,9 @@ Iterator:
     Iterators are used mostly to iterate or convert other objects to an iterator using iter() function.
     Iterator uses iter() and next() functions(or __iter__/__next__ method)
     Every iterator IS NOT a generator
+    Once calculated and used elements are not saved anywhere.
+    __iter__ is just for "for"-loop, u can use only __next__ to iterate in iterable object
+    (but u always use for-loop, because it's comfortable ;))
 """
 
 
@@ -148,3 +151,14 @@ class MyRange:
 #             next_element_exist = False
 #         else:
 #             loop_body_func(element_from_iterator)
+
+
+# something = iter([1, 2, 3])
+#
+# for i in something:  # it works
+#     print(i)
+#
+#
+# for i in something:  # it'll not work, cause iter() returns 1 iterator, we used it before,
+#     # for every iterating we should generate new iterator with iter()
+#     print(i)

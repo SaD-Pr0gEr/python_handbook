@@ -8,7 +8,8 @@ Generator:
     Every generator is an iterator
     Once calculated and used elements are not saved anywhere.
     Generator returns iterator, but the essence of the generator is that it can freeze work using yield and
-    continues its work at the next call, saving the values of all local attributes
+    continues its work at the next call, saving the values of all local attributes. Without that, we usually
+    use loops in generators to iterate and yield value
 """
 
 from typing import Generator, Union, Iterator
@@ -51,5 +52,14 @@ def grep(source: Union[Generator, Iterator], search_text: str) -> Generator:
         counter += 1
 
 
-text_generator = file_reader_generator("test_data/source.txt")
-searcher = grep(text_generator, "Date")
+def my_range(start, end):
+    while start < end:
+        yield start
+        start += 1
+
+
+# text_generator = file_reader_generator("test_data/source.txt")
+# searcher = grep(text_generator, "Date")
+# int_range = my_range(10, 20)
+# for i in int_range:
+#     print(i)
